@@ -1,5 +1,7 @@
 VER EN QUE RAMA ESTOY:
 
+***LOCALMENTE***
+
 git branch
 
 CREAR NUEVA RAMA:
@@ -14,7 +16,7 @@ CREAR RAMA Y MOVERSE A ELLA EN UN SOLO PASO:
 
 git checkout -b otrarama
 
-FUSIONAR RAMAS:
+FUSIONAR RAMAS :
 
 git merge nombrerama
 
@@ -43,3 +45,10 @@ VER ESTADO DEL REPOSITORIO LOCAL (CAMBIOS POR SUBIR O BAJAR)
 git status
 
 ---------------------------------------- 
+
+NO OLVIDAR!!! OJO
+
+al momento de hacer un merge desde cualquier rama, se crea un commit en la ramaque recibe LOS
+CAMBIOS****
+Posteriormente debemos hacer un Push para subir el merge al repositorio REMOTO
+
