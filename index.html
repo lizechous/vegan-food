@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Aesthetic Template">
+    <meta name="keywords" content="Aesthetic, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Recetario vegano | Inicio</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/flaticon.css" type="text/css">
+    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+
+    <!-- STYLE MENU RESPONSIVE -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+        integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+        crossorigin="anonymous"></script>
+
+    <script>
+        function toggleDetail(idDetail) {
+            // Obtengo todos los divs dentro del div padre llamado "foodDetails" para ocultarlos
+            var foodDetailChildrens = document.getElementById('foodDetails').children;
+            for (i = 0; i < foodDetailChildrens.length; i++) {
+                var food = foodDetailChildrens[i];
+                food.style.display = "none";
+            }
+
+            // luego solamente muestro el div que corresponda según la opción seleccionada
+            // block = se muestra
+            // none = se oculta
+            var x = document.getElementById(idDetail);
+            x.style.display = "block";
+        }
+    </script>
+</head>
+
+<body>
+    <!-- PRECARGA DE PÁG -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+
+    <!-- HEADER COMIENZO -->
+    <header class="header">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2">
+                    <!-- LINK PÁGINA INICIO EN LOGO -->
+                    <div class="header__logo">
+                        <a href="./index.html"><img src="img/logo-vegano.png" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-10">
+                    <div class="header__menu__option">
+                        <!-- LINKS PÁGINAS -->
+                        <nav class="header__menu">
+                            <ul>
+                                <li class="active"><a href="./index.html">Inicio</a></li>
+                                <li><a href="./crear-receta.html">Crear receta</a></li>
+                                <li><a href="./registro.html">Registro</a></li>
+                                <li><a href="./contacto.html">Contacto</a></li>
+
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown"><b>Ingresar</b></a>
+                                    <ul id="login-dp" class="dropdown-menu">
+                                        <li>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <form class="form" role="form" method="post" action="login"
+                                                        accept-charset="UTF-8" id="login-nav">
+                                                        <div class="form-group">
+                                                            <!-- <label class="sr-only" for="exampleInputEmail2">Ingresa tu email</label> -->
+                                                            <input type="email" class="form-control"
+                                                                id="exampleInputEmail2" placeholder="Email" required>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <!-- <label class="sr-only" for="exampleInputPassword2">Ingresa tu contraseña</label> -->
+                                                            <input type="password" class="form-control"
+                                                                id="exampleInputPassword2" placeholder="Contraseña"
+                                                                required>
+                                                            <div class="help-block text-right"><a href="">Olvidaste tu
+                                                                    contraseña ?</a></div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <button type="submit"
+                                                                class="btn btn-primary btn-block">Entrar</button>
+                                                        </div>
+                                                        <div class="checkbox">
+                                                            <label>
+                                                                <input type="checkbox"> Mantener sesión iniciada
+                                                            </label>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MENU RESPONSIVO BTN -->
+            <div class="menu_responsivo">
+                
+                <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="./crear-receta.html">Crear receta</a>
+                    <a class="dropdown-item" href="./registro.html">Registro</a>
+                    <a class="dropdown-item" href="./contacto.html">Contacto</a>
+                    <a class="dropdown-item" data-toggle="dropdown"><b>Ingresar</b></a>
+                    <ul id="login-dp" class="dropdown-menu">
+                        <li>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <form class="form" role="form" method="post" action="login" accept-charset="UTF-8"
+                                        id="login-nav">
+                                        <div class="form-group">
+                                            <!-- <label class="sr-only" for="exampleInputEmail2">Ingresa tu email</label> -->
+                                            <input type="email" class="form-control" id="exampleInputEmail2"
+                                                placeholder="Email" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <!-- <label class="sr-only" for="exampleInputPassword2">Ingresa tu contraseña</label> -->
+                                            <input type="password" class="form-control" id="exampleInputPassword2"
+                                                placeholder="Contraseña" required>
+                                            <div class="help-block text-right"><a href="">Olvidaste tu
+                                                    contraseña ?</a></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox"> Mantener sesión iniciada
+                                            </label>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    </li>
+
+                </div>
+            </div>
+            <!-- FIN MENU RESPONSIVE -->
+
+        </div>
+    </header>
+    <!-- FIN HEADER -->
+
+    <!-- CARRUSEL DE IMAGENES -->
+    <div class="container">
+        <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+                <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <!-- <a href=""> -->
+                        <img src="img/empanadas.jpg" class="d-block" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Empanadas dieciocheras veganas</h5>
+                            <p>Celebra las fiestas patrias con esta receta</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <!-- <a href=""> -->
+                        <img src="img/porotos.jpg" class="d-block" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Porotos granados</h5>
+                            <p>Típica comida chilena</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/pascualina.jpg" class="d-block" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Tarta Pascualina</h5>
+                        <p>Originaria de Italia</p>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- FIN DEL CARRUSEL -->
+
+    <!-- SECCIÓN RECETAS DESPLIEGUE -->
+    <section class="services-page spad">
+        <div class="container">
+            <div class="row">
+                <!--  -->
+                <div class="col-lg-8 order-lg-2">
+                    <div class="services__details" id="foodDetails">
+                        <!-- RECETA CHEESECAKE -->
+                        <div id="cheesecake" style="display: block">
+
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="services__details__title">
+                                        <h3>Cheesecake de frutos rojos vegano</h3>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="services__details__widget">
+                                        <div class="rating">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="services__details__pic">
+                                <img src="img/cheescake.jpg" alt="cheescake">
+                            </div>
+
+                            <div class="services__details__text">
+                                <p>INGREDIENTES (8 porciones)</p>
+                                <br>
+                                <p>Para la base:</p>
+                                <ul>
+                                    <li>80g de nueces (1 taza)</li>
+                                    <li>100g de harina de tu preferencia (1 taza) </li>
+                                    <li>34g de dátiles sin hueso (7 unidades) </li>
+                                    <li>20g de aceite de coco (1/8 taza) </li>
+                                    <li>1/2 cdta de canela</li>
+                                    <li>1/2 cdta de sal</li>
+                                </ul>
+                                <br>
+                                <p>Para el cheesecake:</p>
+                                <ul>
+                                    <li>360g de anacardos/cashwes (3 tazas) </li>
+                                    <li>180g leche vegetal (1 taza) </li>
+                                    <li>80g aceite de coco (2/4 taza) </li>
+                                    <li>160g de miel o similar (2/3 taza) </li>
+                                    <li>32g de zumo de limón (4 limones) </li>
+                                    <li>1 cucharada de extracto de vanilla</li>
+                                    <li>50g de frutos rojos o uno de tu elección congelado (2/4 taza)</li>
+                                </ul>
+                                <br>
+                                <p>Para la gelatina de frutos rojos:</p>
+                                <ul>
+                                    <li>200g de puré de frutos rojos concentrado </li>
+                                    <li>2 cucharadas de semillas de chia</li>
+                                </ul>
+                                <br>
+                                <br>
+                                <p>INSTRUCCIONES</p>
+
+                                <ol>
+                                    <li>Poner los anacardos remojando en agua hirviendo o super caliente.</li>
+                                    <li>Engrasar el molde que vayas a utilizar y reservar. </li>
+                                    <li>En un procesador de comida agregar todos los ingredientes de la base y moler a
+                                        máxima velocidad. No batirlo en exceso que puede crear mantequilla, hasta que
+                                        todo esté triturado y masa menos juntos. </li>
+                                    <li>Agregar a la base de nuestro molde y aplastarlo como sea posible homogéneamente.
+                                        Reservar en el congelador.</li>
+                                    <li>Sin lavar el procesador de frutas, agregar todos los ingredientes del cheesecake
+                                        sin los frutos rojos. También los anacardos sin el agua. Tiene que haber
+                                        reposado en el agua al menos 20 minutos. </li>
+                                    <li>Licuar hasta tener una textura homogénea a máxima velocidad. </li>
+                                    <li>Agregar la mitad de la masa en el molde y lo otro reservar en el procesador de
+                                        comida. Reservar en el congelador. </li>
+                                    <li>Licuar los frutos rojos congelados junto al resto de la masa. Agregar la capa,
+                                        esparcir y congelar. </li>
+                                    <li>En un tazón, poner la chia con el puré de frutos rojos. Si está muy ácido puedes
+                                        contrarrestarlo con un poco de miel, o si le falta acidez ponerle limón. Si no
+                                        tienes puré de frutos rojos comprados puedes licuar frutos
+                                        rojos y colarlos. Una vez que la tarta esté un poco congelada agregar esta
+                                        última capa. </li>
+                                    <li>Reservar en la nevera hasta que esté del todo fría. Yo lo suelo hacer de un día
+                                        para otro y lo reservo en el congelador. </li>
+                                    <li>Retirar del congelador y esperar 20 minutos a temperatura ambiente para que se
+                                        pueda desmoldar rápidamente. </li>
+                                    <li>Con ayuda de un cuchillo caliente repasar los bordes y desmoldar la tarta. A mi
+                                        se me hizo super simple y no tuve que bordear todo el molde. </li>
+                                    <li>Reservar en la nevera/frigider hasta terminar la tarta. </li>
+                                </ol>
+                                <br>
+                            </div>
+
+                            <!-- ESTO ES UN EJEMPLO DE DISCUS -->
+                            <h4>Deja tus comentarios</h4>
+                            <br>
+                            <!-- AGREGAMOS DISCUS PERO NO LE PUSISMOS NINGUNA ID A LA RECETA YA QUE AUN NO TIENE FUNCIONALIDAD-->
+                            <div id="disqus_thread"></div>
+                            <script>
+                                /**
+                                 *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                                 *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+                                /*
+                                var disqus_config = function () {
+                                this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                                this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                                };
+                                */
+                                (function () { // DON'T EDIT BELOW THIS LINE
+                                    var d = document,
+                                        s = d.createElement('script');
+                                    s.src = 'https://recetario-2.disqus.com/embed.js';
+                                    s.setAttribute('data-timestamp', +new Date());
+                                    (d.head || d.body).appendChild(s);
+                                })();
+                            </script>
+                            <noscript>Please enable JavaScript to view the <a
+                                    href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+                        </div>
+
+                        <!-- RECETA QUEQUE ZANAHORIA -->
+                        <div id="queque" style="display: none">
+
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="services__details__title">
+                                        <h3>Queque de zanahoria vegano</h3>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="services__details__widget">
+                                        <div class="rating">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="services__details__pic">
+                                <img src="img/queque.jpg" alt="queque">
+                            </div>
+
+                            <div class="services__details__text">
+                                <p>INGREDIENTES (8 porciones)</p>
+                                <ul>
+                                    <li>1/2 taza de harina de arroz integral (70 g)</li>
+                                    <li>3/4 taza de harina de avena (85 g) </li>
+                                    <li>1/2 taza de azúcar integral (100 g) </li>
+                                    <li>1 cucharadita de bicarbonato </li>
+                                    <li>1 cucharadita de canela en polvo</li>
+                                    <li>2 cucharadas de semillas de lino + 6 cucharadas de agua</li>
+                                    <li>1 taza de zanahoria rallada (150 g)</li>
+                                    <li>1 cucharada de vinagre de manzana</li>
+                                    <li>3/4 taza de leche de coco (180 g)</li>
+                                    <li>1/3 taza de nueces troceadas (40 g)</li>
+                                    <li>1/3 taza de pasas (50 g)</li>
+                                    <li>Nueces troceadas y pasas para decorar (opcional)</li>
+                                </ul>
+                                <br>
+
+                                <p>INSTRUCCIONES</p>
+
+                                <ol>
+                                    <li>Precalentamos el horno a 200ºC ó 390º F.</li>
+                                    <li>En un bol mezclamos los ingredientes secos (la harina de arroz integral, la
+                                        harina de avena, el azúcar, el bicarbonato y la canela).</li>
+                                    <li>Como sustituto del huevo usamos semillas de lino. Echamos las semillas en una
+                                        batidora junto con el agua y batimos hasta que estén bien integrados. Reservamos
+                                        en un vaso o taza. Es importante que repose al menos 5 minutos
+                                        para que tenga una consistencia gelatinosa, parecida a la del huevo.</li>
+                                    <li>Para rallar la zanahoria, nosotros la echamos pelada y troceada en un procesador
+                                        de alimentos y batimos hasta obtener la consistencia que podéis ver en la foto
+                                        del paso a paso. También podéis hacerlo con una batidora
+                                        o con un rallador manual.</li>
+                                    <li>Echamos el huevo vegano (la mezcla de lino y agua), la zanahoria rallada, el
+                                        vinagre y la leche de coco en el bol en el que teníamos los ingredientes secos y
+                                        removemos hasta que estén bien integrados.</li>
+                                    <li>Después echamos las nueces y las pasas y volvemos a remover.</li>
+                                    <li>Engrasamos el molde con aceite (nosotros solemos usar aceite de coco). Si usáis
+                                        un molde antiadherente que no se pegue, podéis eliminar este paso. Para no tener
+                                        que echar tanto aceite, nos gusta poner papel de hornear
+                                        en la base del molde, así es más fácil de desmoldar. Nosotros usamos éste molde
+                                        de 22 cm de diámetro (8 2/3 pulgadas).
+                                    </li>
+                                    <li>Echamos la masa en el molde.</li>
+                                    <li>Horneamos durante unos 30 minutos o hasta que el bizcocho esté listo.</li>
+                                    <li>Lo sacamos del horno y lo dejamos enfriar antes de desmoldarlo.</li>
+                                    <li>Nosotros lo decoramos con nuestro frosting vegano saludable que untamos con
+                                        ayuda de una cuchara, nueces troceadas y pasas.</li>
+                                </ol>
+                                <br>
+                            </div>
+
+
+
+                        </div>
+                        <!-- RECETA  EMPANADAS-->
+                        <div id="empanada" style="display: none">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="services__details__title">
+                                        <h3>Empanadas de pino veganas</h3>
+                                    </div>
+                                </div>
+                                <!-- <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="services__details__widget">
+                                        <div class="rating">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div> -->
+                            </div>
+                            <div class="services__details__pic">
+                                <img src="img/empanadas.jpg" alt="emp">
+                            </div>
+
+                            <div class="services__details__text">
+                                <p>INGREDIENTES (10 porciones)</p>
+                                <p>Para el pino:</p>
+                                <ul>
+                                    <li>1 cucharada de aceite de coco (o de oliva, o la que ocupes).</li>
+                                    <li>2 cebollas medianas, picadas en cubitos.</li>
+                                    <li>1 1/2 cucharaditas de sal.</li>
+                                    <li>2 cucharaditas de comino.</li>
+                                    <li>2 cucharaditas de ají de color.</li>
+                                    <li>800 gramos de champiñones, limpios y picados fino .</li>
+                                    <li>Sal, comino, y ají de color extra para rectificar la sazón.</li>
+                                </ul>
+                                <br>
+                                <p>Para la masa integral:</p>
+                                <ul>
+                                    <li>3 tazas de harina integral.</li>
+                                    <li>1 cucharadita de sal.</li>
+                                    <li>1 1/2 tazas de agua caliente (casi hirviendo).</li>
+                                    <li>1/4 taza de de aceite vegetal.</li>
+                                    <li>Harina extra para amasar.</li>
+                                </ul>
+                                <br>
+                                <p>Opcional:</p>
+                                <ul>
+                                    <li>10 aceitunas.</li>
+                                    <li>3 huevos.</li>
+                                    <li>10 pasas.</li>
+                                </ul>
+                                <br>
+                                <p>INSTRUCCIONES</p>
+                                <p>Pino de champiñones:</p>
+                                <ol>
+                                    <li>En una olla grande, calentar el aceite. Cuando esté caliente, agregar las
+                                        cebollas picadas en cubitos, y cocinar por 7 a 10 minutos revolviendo
+                                        ocasionalmente.
+                                    </li>
+                                    <li>Transcurrido este tiempo, agregar la sal, el comino, y el ají de color a la
+                                        cebolla. Cocinar revolviendo por 5 minutos más.</li>
+                                    <li>Agregar los champiñones y cocinar por 5 minutos, revolviendo ocasionalmente.
+                                    </li>
+                                    <li>Rectificar la sazón con comino, sal, y ají de color extra.</li>
+                                    <li>Retirar del fuego, y pasar a un colador. Puedes reservar el líquido si así lo
+                                        deseas, pero la idea es remover lo máximo de líquido posible del pino de
+                                        champiñones.
+                                    </li>
+                                    <li>Reservar el pino de champiñones mientras se preparan las tapas o masas de
+                                        empanadas.
+                                    </li>
+                                </ol>
+                                <br>
+                                <p>Masa de empanadas:</p>
+                                <ol>
+                                    <li>En un bowl grande mezclar la harina y la sal.</li>
+                                    <li>Agregar el agua caliente y el aceite, y con la ayuda de un tenedor incorporar
+                                        bien hasta lograr una masa lo más homogénea posible.</li>
+                                    <li>Pasar a un mesón enharinado, y dejar reposar por 10 minutos.</li>
+                                    <li>Con las manos enharinadas, amasar, agregando harina las veces que sea necesario,
+                                        hasta obtener una masa suave y elástica.</li>
+                                    <li>olver a enharinar bien la mesa, uslerear la masa hasta que quede delgada (aunque
+                                        no excesivamente delgada, o se romperá), y cortar círculos (yo uso un plato de
+                                        cereal grande).</li>
+                                    <li>Pueden congelarse las tapas de empanada, o bien rellenarse de inmediato (para
+                                        luego congelar u hornear).</li>
+                                </ol>
+                                <br>
+                                <p>Rellenar:</p>
+                                <ol>
+                                    <li>En un mesón enharinado uslerear la masa de empanadas hasta alcanzar el grosor
+                                        deseado.
+                                    </li>
+                                    <li>Cortar 10 círculos o tapas de aproximadamente 15 centímetros de diámetro.</li>
+                                    <li>Llenar cada tapa con 2 cucharadas de pino de champiñones, 1 aceituna, 1 pasa y
+                                        1/4 de huevo duro (opcional). Cerrar y sellar bien.</li>
+                                    <li>Hornear en horno precalentado a 220ºC por 20 minutos.</li>
+                                </ol>
+                            </div>
+                        </div>
+                        <!-- RECETA POROTOS -->
+                        <div id="porotos" style="display: none">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="services__details__title">
+                                        <h3>Porotos granados</h3>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="services__details__widget">
+                                        <div class="rating">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="services__details__pic">
+                                <img src="img/porotos.jpg" alt="porotos">
+                            </div>
+
+                            <div class="services__details__text">
+                                <p>INGREDIENTES (4 porciones)</p>
+                                <br>
+                                <ul>
+                                    <li>2 cucharadas de aceite vegetal</li>
+                                    <li>1 diente de ajo picado fino</li>
+                                    <li>Sal, ají color (paprika), pimienta y comino a gusto</li>
+                                    <li>1 1/2 kilos de porotos granados</li>
+                                    <li>2 choclos (maíz)</li>
+                                    <li>1/4 kilo (250 grs) de zapallo camote</li>
+                                    <li>8 hojas de albahaca</li>
+                                    <li>1 cebolla chica picada en cuadros</li>
+                                </ul>
+                                <br>
+
+                                <p>INSTRUCCIONES</p>
+
+                                <ol>
+                                    <li>Desgranar los porotos, y picar los choclos, lavar y picar el zapallo en cuadros
+                                        medianos.
+                                    </li>
+                                    <li>En una olla grande cocinar con agua caliente hasta cubrir los porotos y el
+                                        zapallo picado, añadir un poco de sal y unas 4 hojas de albahaca. Dejar a fuego
+                                        medio por unos 30 minutos.</li>
+                                    <li>Mientras tanto hacer un sofrito en un sartén con el aceite, la cebolla picada en
+                                        cuadros, ajo, albahaca picada y el resto de aliños. Esto toma unos 7 minutos más
+                                        o menos.</li>
+                                    <li>Mientras tanto agregar el choclo a la mezcla de porotos y cocinar por unos 5
+                                        minutos más.</li>
+                                    <li>Enseguida añadir el sofrito preparado, revolver bien y dejar cocinar unos 3
+                                        minutos más.</li>
+                                    <li>Dejar reposar y servir con albahaca encima o con color, que es básicamente ají
+                                        color con manteca o mantequilla derretida.</li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <!-- RECETA TERREMOTO -->
+                        <div id="terremoto" style="display: none">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="services__details__title">
+                                        <h3>Terremoto chileno</h3>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="services__details__widget">
+                                        <div class="rating">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="services__details__pic">
+                                <img src="img/TERREMOTO.jpg" alt="terremoto">
+                            </div>
+
+                            <div class="services__details__text">
+                                <p>INGREDIENTES (2 porciones)</p>
+                                <br>
+                                <ul>
+                                    <li>600 ml de vino blanco o pipeño de tu preferencia</li>
+                                    <li>Helado de maracuya o piña</li>
+                                    <li>Fernet</li>
+                                    <li>Granadina</li>
+                                    <li>Ron</li>
+                                    <li>Coñac</li>
+                                </ul>
+                                <br>
+
+                                <p>INSTRUCCIONES</p>
+
+                                <ol>
+                                    <li>Coloca en el pipeño, 6 a 10 cucharadas de helado de maracuya o piña, en un vaso
+                                        grande.
+                                    </li>
+                                    <li>Añade un toque de fernet o granadina o ron o cognac y revolver suavemente.</li>
+                                    <li>Sirve de inmediato.</li>
+                                    <li>Sin duda es una combinación dulce pero se debe tomar con cautela. Puedes cambiar
+                                        el licor y prepararlo con el de tu preferencia. Si deseas añade crema batida y
+                                        sirope de fresa, tal como lo muestra la imagen.</li>
+                                </ol>
+                            </div>
+                        </div>
+                        <!-- RECETA LIMONADA  -->
+                        <div id="limonada" style="display: none">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="services__details__title">
+                                        <h3>Limonada de menta</h3>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="services__details__widget">
+                                        <div class="rating">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="services__details__pic">
+                                <img src="img/limonada.jpeg" alt="limonada">
+                            </div>
+
+                            <div class="services__details__text">
+                                <p>INGREDIENTES</p>
+                                <br>
+                                <ul>
+                                    <li>250 ml de zumo de limón (aproximadamente 3 limones)</li>
+                                    <li>1 limón entero (bio)</li>
+                                    <li>Menta fresca</li>
+                                    <li>750 ml de agua fría</li>
+                                    <li>Cubitos de hielo</li>
+                                    <li>50 g de azúcar</li>
+                                    <li>50 ml de agua</li>
+                                </ul>
+                                <br>
+
+                                <p>INSTRUCCIONES</p>
+
+                                <ol>
+                                    <li>Preparar el almíbar. Para ello, mezclar el agua y el azúcar en un cazo. Disolver
+                                        bien el azúcar y llevar a ebullición.</li>
+                                    <li>En cuanto el agua hierva, apagar el fuego y dejar enfriar.</li>
+                                    <li>Exprimir 3 limones (*).</li>
+                                    <li>Lavar el otro limón restante y cortarlo en rodajas de medio centímetro de
+                                        grosor.
+                                    </li>
+                                    <li>Colocar 2 ó 3 ramas de menta y unas rodajas de limón en un bol y machacarlos
+                                        ligeramente.
+                                    </li>
+                                    <li>Transferir esta mezcla a una jarra de por lo menos 1 litro de capacidad.</li>
+                                    <li>Incorporar el jugo de limón en la jarra y rellenar con agua.</li>
+                                    <li>Añadir la cantidad de almíbar de acuerdo al dulzor deseado. Mezclar bien. Probar
+                                        y rectificar de almíbar o agua si necesario.</li>
+                                    <li>Opcionalmente, se pueden incluir más ramas de menta y rodajas de limón en la
+                                        jarra para decorar.</li>
+                                    <li>¡Y ya está!. Justo antes de servir, llenar la jarra con hielo. ¡A refrescarse!
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SECCIÓN ABANICO RECETAS INICIO -->
+                </div>
+                <div class="col-lg-4 order-lg-1">
+                    <div class="services__sidebar">
+                        <div class="services__accordion">
+                            <div class="services__title">
+                                <h4><img src="img/icons/organico.png" alt=""> Todas las recetas</h4>
+                            </div>
+                            <div class="accordion" id="accordionExample">
+                                <div class="card">
+                                    <div class="card-heading active">
+                                        <a data-toggle="collapse" data-target="#collapseOne">
+                                            <p>Postres / Pasteles</p>
+                                        </a>
+                                    </div>
+                                    <div id="collapseOne" class="collapse show" data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            <ul>
+                                                <li><a onclick="toggleDetail('cheesecake')">Cheesecake frutos rojos</a>
+                                                </li>
+                                                <li><a onclick="toggleDetail('queque')">Queque de zanahoria</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-heading">
+                                        <a data-toggle="collapse" data-target="#collapseTwo">
+                                            Comidas
+                                        </a>
+                                    </div>
+                                    <div id="collapseTwo" class="collapse" data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            <ul>
+                                                <li><a onclick="toggleDetail('empanada')">Empanadas de pino</a></li>
+                                                <li><a onclick="toggleDetail('porotos')">Porotos granados</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-heading">
+                                        <a data-toggle="collapse" data-target="#collapseThree">
+                                            Bebestibles
+                                        </a>
+                                    </div>
+                                    <div id="collapseThree" class="collapse" data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            <ul>
+                                                <li><a onclick="toggleDetail('terremoto')">Terremoto</a></li>
+                                                <li><a onclick="toggleDetail('limonada')">Limonada de menta</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- FIN SECCIÓN RECETAS -->
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <div class="container">
+            <div class="row">
+                <!-- REDES -->
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="footer__address">
+                        <h5>Síguenos</h5>
+                        <ul>
+                            <li><i class="fa fa-map-marker"></i> Santiago, RM, Chile.</li>
+                            <li><i class="fa fa-instagram"></i>@comidaveganch</li>
+                            <li><i class="fa fa-twitter"></i>@comidaveganch</li>
+                            <li><i class="fa fa-envelope"></i> recetarioveganoch@gmail.com</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- COPYRIGHT -->
+            </div>
+        </div>
+        <div class="footer__copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class="footer__copyright__text">
+                            <p>Copyright &copy;
+                                <script>
+                                    document.write(new Date().getFullYear());
+                                </script> Elizabeth Pastenes | Gabriel Florit <i class="fa fa-heart"
+                                    aria-hidden="true"></i></p>
+                        </div>
+                    </div>
+                    <!-- TERMINOS DE USO -->
+                    <div class="col-lg-5">
+                        <ul>
+                            <li>Todos los derechos reservados</li>
+                            <li>Politicas de privacidad</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- FINAL DE FOOTER -->
+
+    <!-- JS PLUGINS -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/masonry.pkgd.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+    <script id="dsq-count-scr" src="//recetario-2.disqus.com/count.js" async></script>
+</body>
+
+</html>
