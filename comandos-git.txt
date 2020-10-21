@@ -1,0 +1,45 @@
+VER EN QUE RAMA ESTOY:
+
+git branch
+
+CREAR NUEVA RAMA:
+
+git branch nombrerama
+
+PASAR DE UNA RAMA A OTRA:
+
+git checkout nombrerama
+
+CREAR RAMA Y MOVERSE A ELLA EN UN SOLO PASO:
+
+git checkout -b otrarama
+
+FUSIONAR RAMAS:
+
+git merge nombrerama
+
+FUSIONAR RAMA CON MENSAJE (NECESARIO):
+
+git merge nombrerama -m 'esto es un merge'
+
+SUBIR UNA RAMA AL REPOSITORIO REMOTO:
+
+git push -u origin nombrerama
+
+SUBIR CAMBIOS A RAMA PROPIA:
+
+git push origin nombrerama
+
+AGREGAR CAMBIOS:
+
+git add .
+
+AGREGAR COMMIT A LOS CAMBIOS:
+
+git commit -m 'message'
+
+VER ESTADO DEL REPOSITORIO LOCAL (CAMBIOS POR SUBIR O BAJAR)
+
+git status
+
+---------------------------------------- 
