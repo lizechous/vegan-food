@@ -1,15 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form method="POST">
-        {{form.as_p}}
-        {% csrf_token %}
-        <button type="submit">Guardar cambios</button>
-    </form>
-</body>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="row d-flex justify-content-center">
+                <div class="col-lg-8">
+                    <div class="blog__details__comment">
+                        <h3>Edita tu receta</h3>
+                        <form enctype="multipart/form-data" id="id-formulario-receta" method="POST">
+                            {% csrf_token %}
+
+                            {{form.as_p}}
+                            <button type="submit" id="botonReceta" class="site-btn">Guardar cambios</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <br><br><br><br>
+{% endblock %}
+
