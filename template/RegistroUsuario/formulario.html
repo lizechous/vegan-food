@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <!-- SECCIÓN REGISTRO -->
+    <section class="blog-details spad">
+        <div class="container">
+            <div class="blog__details__hero set-bg" data-setbg="{% static 'images/portada.jpg' %}">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-lg-7 text-center">
+                        <div class="blog__hero__text">
+                            <h2>Registrate y colabora con tus recetas</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-8">
+                    <div class="blog__details__comment">
+                        <h3>Registrate en Nuestro Sitio</h3>
+
+                        <form id="idFormRegistro" action="#" method="POST">
+                            <div class="item-formulario">
+                                <label for="id_txtNombre">
+                                    Nombre
+                                </label>
+                                <input class="input" type="text" name="txtNombre" value="" required="" placeholder="Escribe tu nombre" id="id_txtNombre" onkeydown="return alphaOnly(event)" />
+                            </div>
+                            <div class="item-formulario">
+                                <label for="id_txtApellido">
+                                    Apellido
+                                </label>
+                                <input class="input" type="text" name="txtApellido" value="" required="" placeholder="Escribe tu Apellido" id="id_txtApellido" onkeydown="return alphaOnly(event)" />
+                            </div>
+                            <div class="item-formulario">
+                                <label for="id_txtEmail">
+                                    Email
+                                </label>
+                                <input class="input" type="email" name="txtEmail" pattern="/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/" required="" placeholder="Ingrese su email" id="id_txtEmail" />
+                            </div>
+                            <div>
+                                <label>Crea una contraseña</label>
+                                <input type="password" required id="txtPass1" onkeyup="coincidePassword(this.value, 'spanPass1', false)" placeholder="Escriba la contraseña" />
+                                <span id="spanPass1" style="display: none;"></span>
+                            </div>
+                            <div>
+                                <label>Vuelve a escribir la contraseña</label>
+                                <input type="password" required id="txtPass2" onkeyup="coincidePassword(this.value, 'spanPass2', true)" placeholder="Vuelva a escribir la contraseña" />
+                                <span id="spanPass2" style="display: none;"></span>
+                            </div>
+                            <div class="item-formulario">
+                                <label for="btnRegistro">
+                                    <button type="submit" id="btnRegistro" name="btnRegistro"
+                                        onclick="return validarPasswords()" class="site-btn">Registrarse</button>
+                                </label>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- FIN SECCIÓN -->
+
+
+{% endblock %}

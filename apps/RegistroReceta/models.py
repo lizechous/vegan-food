@@ -4,7 +4,7 @@ from django.db import models
 # Create your models here.
 
 class Receta(models.Model):
-    autor = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    autor = models.ForeignKey('auth.User', default=1, on_delete=models.CASCADE)
     nombre_receta = models.TextField()
     porciones = models.IntegerField()
     tipo_receta = models.CharField(max_length=30)

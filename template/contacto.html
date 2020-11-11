@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+
+    
+{% block content %}
+    <!--SECCIÓN INFORMACIÒN CONTACTO -->
+    <section class="contact spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="contact__widget">
+                        <div class="contact__widget__icon">
+                            <i class="fa fa-twitter"></i>
+                        </div>
+                        <div class="contact__widget__text">
+                            <h5>Twitter</h5>
+                            <p>@comidaveganch</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="contact__widget">
+                        <div class="contact__widget__icon">
+                            <i class="fa fa-instagram"></i>
+                        </div>
+                        <div class="contact__widget__text">
+                            <h5>Instagram</h5>
+                            <p>@comidaveganch</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="contact__widget">
+                        <div class="contact__widget__icon">
+                            <i class="fa fa-envelope"></i>
+                        </div>
+                        <div class="contact__widget__text">
+                            <h5>Email</h5>
+                            <p>recetarioveganoch@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- FIN INFO CONTACTO -->
+
+            <div class="contact__content">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="contact__pic">
+                            <img src="{% static 'images/vegano.jpg' %}" alt="">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="contact__form">
+                            <h3>Ponte en contacto</h3>
+                            <form action="#">
+                                <input type="text" placeholder="Nombre">
+                                <input type="text" placeholder="Email">
+                                <textarea placeholder="Mensaje"></textarea>
+                                <button type="submit" class="site-btn">Enviar mensaje</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- FINAL DE SECCIÓN CONTACTO -->
+{% endblock %}
+

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <h3>Recetas</h3>
+    <hr>
+    <a class="btn" role="button" href="{% url 'crear_receta' %}">Agregar receta</a>
+    <hr>
+
+    {% if not recetas %}
+        <h1>No hay registro de recetas</h1>
+        <br><br><br><br><br><br><br><br>
+    {% else %}
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <td>Imagen</td>
+                    <td>Nombre</td>
+                    <td>Tipo</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for r in recetas %}
+                    <tr>
+                        <td><img src=../../static/images/{{r.imagen}} style="width: 100px;" /> </td>
+                        <td>{{ r.nombre_receta }}</td>
+                        <td>{{ r.tipo_receta }}</td>
+                        <td>
+                        <a class="btn btn-primary" href="{% url 'editar_receta' r.id%}"> Editar </a>
+                        <a class="btn btn-danger" href="{% url 'borrar_receta' r.id%}">Eliminar</a>
+                        </td>
+                    </tr>
+            {% endfor %}        
+        </tbody>
+    </table>
+    <br><br><br><br>
+    {% endif %}
+
+</div>
+
+{% endblock %}

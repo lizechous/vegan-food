@@ -1,0 +1,14 @@
+
+
+    {% block content %}
+        <div class="text-center">
+            <form method="post">
+                {% csrf_token %}
+
+                {% comment %} <p class="delete-msg">Are you sure you want to delete the {{ object.nombre_receta }}?</p> {% endcomment %}
+
+                {% comment %} <a href="{% url 'listar_recetas' %}" class="btn btn-secondary">NO</a>
+                <button class="btn btn-primary" type="submit">Si</button> {% endcomment %}
+            </form>
+        </div>
+    {% endblock %}
