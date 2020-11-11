@@ -1,0 +1,225 @@
+<!-- base.html -->
+<!-- CARGA RECURSOS ESTATICOS -->
+{% load static %}
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Aesthetic Template">
+    <meta name="keywords" content="Aesthetic, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>{% block title %}{% endblock title %}</title>
+    
+    {% block css %} 
+        <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+        <!-- Google Font -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap">
+
+        <!-- Css Styles -->
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+        <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" type="text/css">
+        <link rel="stylesheet" href="{% static 'css/flaticon.css' %}"type="text/css">
+        <link rel="stylesheet" href="{% static 'css/nice-select.css' %}" type="text/css">
+        <link rel="stylesheet" href="{% static 'css/jquery-ui.min.css' %}" type="text/css">
+        <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" type="text/css">
+        <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}" type="text/css">
+        <link rel="stylesheet" href="{% static 'css/slicknav.min.css' %}" type="text/css">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+
+        <!-- STYLE MENU RESPONSIVE -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+        integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+        crossorigin="anonymous"></script>
+
+    {% endblock css %}
+
+</head>
+
+<body>
+    {% block preloder %}
+        <div id="preloder">
+            <div class="loader"></div>
+        </div> 
+    {% endblock %}
+
+    {% block header %}
+        <header class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-2">
+                        <!-- LINK PÁGINA INICIO EN LOGO -->
+                        <div class="header__logo">
+                            <a href="./index.html"><img src="{% static 'images/logo-vegano.png' %}" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-10">
+                        <div class="header__menu__option">
+                            <!-- LINKS PÁGINAS -->
+                            <nav class="header__menu">
+                                <ul>
+                                    <li><a href="{% url 'index' %}">Inicio</a></li>
+                                    <li><a href="{% url 'crear_receta' %}">Crear receta</a></li>
+                                    <li><a href="{% url 'registro' %}">Registro</a></li>
+                                    <li><a href="{% url 'contacto' %}">Contacto</a></li>
+                                    <li class="dropdown">
+                                        <a class="dropdown-toggle" data-toggle="dropdown"><b>Ingresar</b></a>
+                                        <ul id="login-dp" class="dropdown-menu">
+                                            <li>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <form class="form" role="form" method="post" action="login"
+                                                            accept-charset="UTF-8" id="login-nav">
+                                                            <div class="form-group">
+                                                                <!-- <label class="sr-only" for="exampleInputEmail2">Ingresa tu email</label> -->
+                                                                <input type="email" class="form-control"
+                                                                    id="exampleInputEmail2" placeholder="Email" required>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <!-- <label class="sr-only" for="exampleInputPassword2">Ingresa tu contraseña</label> -->
+                                                                <input type="password" class="form-control"
+                                                                    id="exampleInputPassword2" placeholder="Contraseña"
+                                                                    required>
+                                                                <div class="help-block text-right"><a href="">Olvidaste tu
+                                                                        contraseña ?</a></div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <button type="submit"
+                                                                    class="btn btn-primary btn-block">Entrar</button>
+                                                            </div>
+                                                            <div class="checkbox">
+                                                                <label>
+                                                                    <input type="checkbox"> Mantener sesión iniciada
+                                                                </label>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>  
+                            </nav>
+                        </div>
+                    </div>
+            </div>
+                  <!-- MENU RESPONSIVO BTN -->
+                  <div class="menu_responsivo">
+                    <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{% url 'crear_receta' %}">Crear receta</a>
+                        <a class="dropdown-item" href="{% url 'registro' %}">Registro</a>
+                        <a class="dropdown-item" href="{% url 'contacto' %}">Contacto</a>
+                        <a class="dropdown-item" data-toggle="dropdown"><b>Ingresar</b></a>
+                        <ul id="login-dp" class="dropdown-menu">
+                            <li>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <form class="form" role="form" method="post" action="login" accept-charset="UTF-8"
+                                            id="login-nav">
+                                            <div class="form-group">
+                                                <!-- <label class="sr-only" for="exampleInputEmail2">Ingresa tu email</label> -->
+                                                <input type="email" class="form-control" id="exampleInputEmail2"
+                                                    placeholder="Email" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <!-- <label class="sr-only" for="exampleInputPassword2">Ingresa tu contraseña</label> -->
+                                                <input type="password" class="form-control" id="exampleInputPassword2"
+                                                    placeholder="Contraseña" required>
+                                                <div class="help-block text-right"><a href="">Olvidaste tu
+                                                        contraseña ?</a></div>
+                                            </div>
+                                            <div class="form-group">
+                                                <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox"> Mantener sesión iniciada
+                                                </label>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        </li>
+    
+                    </div>
+                </div>
+                <!-- FIN MENU RESPONSIVE -->
+    
+            </div>
+        </header>
+    {% endblock %}
+
+    {% block content %} {% endblock %}
+
+    {% block footer %}
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <!-- REDES -->
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="footer__address">
+                        <h5>Síguenos</h5>
+                        <ul>
+                            <li><i class="fa fa-map-marker"></i> Santiago, RM, Chile.</li>
+                            <li><i class="fa fa-instagram"></i>@comidaveganch</li>
+                            <li><i class="fa fa-twitter"></i>@comidaveganch</li>
+                            <li><i class="fa fa-envelope"></i> recetarioveganoch@gmail.com</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- COPYRIGHT -->
+            </div>
+        </div>
+        <div class="footer__copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class="footer__copyright__text">
+                            <p>Copyright &copy;
+                                <script>
+                                    document.write(new Date().getFullYear());
+                                </script> Elizabeth Pastenes | Gabriel Florit | Nicolás Castañeda <i class="fa fa-heart"
+                                    aria-hidden="true"></i></p>
+                        </div>
+                    </div>
+                    <!-- TERMINOS DE USO -->
+                    <div class="col-lg-5">
+                        <ul>
+                            <li>Todos los derechos reservados</li>
+                            <li>Politicas de privacidad</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- FINAL DE FOOTER -->
+    {% endblock %}
+
+    {% block javascript %}
+        <!-- JS PLUGINS -->
+        <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+        <script src="{% static 'js/masonry.pkgd.min.js' %}"></script>
+        <script src="{% static 'js/jquery-ui.min.js' %}"></script>
+        <script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+        <script src="{% static 'js/jquery.slicknav.js' %}"></script>
+        <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+        <script src="{% static 'js/main.js' %}"></script>
+        <!-- <script id="dsq-count-scr" src="//recetario-2.disqus.com/count.js" async></script> -->
+    {% endblock javascript %}
+
+</body>
+
+</html>
