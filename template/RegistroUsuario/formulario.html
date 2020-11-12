@@ -20,7 +20,29 @@
                     <div class="blog__details__comment">
                         <h3>Registrate en Nuestro Sitio</h3>
 
-                        <form id="idFormRegistro" action="#" method="POST">
+                        <form id="idFormRegistro" method="POST" enctype= "multipart/form-data" >
+                            {% csrf_token %}
+                            <!-- {{ form.as_p }} -->
+                    
+                            {% for field in form %}
+                            <div class="form-group">
+                                <label for="{{ field.name}}">{{ field.label_tag }}</label><br>            
+                                {{ field }}
+                                <div class="bg-danger mt-1">{{ field.errors }}</div>
+                            </div>
+                            {% endfor %}
+                            
+                            <div class="item-formulario">
+                                <label for="btnRegistro">
+                                    <button type="submit" id="btnRegistro" name="btnRegistro"
+                                                onclick="return validarPasswords()" class="site-btn">Registrarse</button>
+                                </label>
+                            </div>
+                            <!-- <input id="btnRegistro" name="btnRegistro" type="submit" value="Registrarse" class="site-btn"> -->
+                        
+                        </form>
+
+                        <!-- <form id="idFormRegistro" action="#" method="POST">
                             <div class="item-formulario">
                                 <label for="id_txtNombre">
                                     Nombre
@@ -55,7 +77,7 @@
                                         onclick="return validarPasswords()" class="site-btn">Registrarse</button>
                                 </label>
                             </div>
-                        </form>
+                        </form> -->
                     </div>
                 </div>
             </div>

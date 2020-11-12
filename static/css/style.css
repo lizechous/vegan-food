@@ -1190,6 +1190,21 @@ span {
     border: 1px solid red
 }
 
+#idFormRegistro .bg-danger {
+    background-color: transparent !important;
+}
+
+.errorlist li {
+    display: block;
+    font-size: .8em;
+    margin: 0px 0 10px;
+    padding: 5px 0 5px 11px;
+    width: 400px;
+    
+    background: #ffcccc;
+    border: 1px solid red
+}
+
 
 /*---------------------
   Contact
