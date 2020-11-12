@@ -1,1 +1,3 @@
 *.sqlite3
+apps/RegistroReceta/__pycache__/*
+apps/RegistroUsuario/__pycache__/*
