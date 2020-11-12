@@ -27,7 +27,6 @@ class CuentaUsuario(UpdateView):
     model = User
     form_class = CuentaForm
     template_name = "RegistroUsuario/cuenta.html"
-    # TODO: este redirect no sirve (al menos no así pelao)
     success_url = reverse_lazy('index')
 
 
