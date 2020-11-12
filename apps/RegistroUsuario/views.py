@@ -19,16 +19,15 @@ from django.utils.encoding import force_bytes
 
 class RegistroUsuario(CreateView):
     model = User
-    template_name = "RegistroUsuario/formulario.html"
+    template_name = "RegistroUsuario/registro.html"
     form_class = RegistroForm
     success_url = reverse_lazy('login')
 
 class CuentaUsuario(UpdateView):
     model = User
     form_class = CuentaForm
-    template_name = "RegistroUsuario/formulario.html"
-    # TODO: este redirect no sirve (al menos no así pelao)
-    success_url = reverse_lazy('cuenta')
+    template_name = "RegistroUsuario/cuenta.html"
+    success_url = reverse_lazy('index')
 
 
 # Metodos personalizados

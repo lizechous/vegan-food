@@ -21,8 +21,7 @@ urlpatterns = [
     path('', include('apps.RegistroReceta.urls')),
     path('usuario/',include('apps.RegistroUsuario.urls')),
 
-    #TODO: añadir `redirect_authenticated_user=True` cuando esté creado el home
-    path('accounts/login/', LoginView.as_view(template_name='RegistroUsuario/login.html'), name='login'),
+    path('accounts/login/', LoginView.as_view(redirect_authenticated_user=True, template_name='RegistroUsuario/login.html'), name='login'),
     path('logout/', LogoutView.as_view(template_name='RegistroUsuario/logout.html'), name='logout'),
     
     path('password_reset/done/', PasswordResetDoneView.as_view(template_name='RegistroUsuario/password_reset_done.html'), name='password_reset_done'),
