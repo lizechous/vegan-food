@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 
 class RegistroForm(UserCreationForm):
 
@@ -18,7 +18,7 @@ class RegistroForm(UserCreationForm):
                 'email': 'Email',
         }
 
-class CuentaForm(UserCreationForm):
+class CuentaForm(UserChangeForm):
 
     class Meta:
         model = User

@@ -30,9 +30,6 @@ class CuentaUsuario(UpdateView):
     # TODO: este redirect no sirve (al menos no así pelao)
     success_url = reverse_lazy('cuenta')
 
-class EliminarUsuario(DeleteView):
-    pass
-
 
 # Metodos personalizados
 
