@@ -1,10 +1,4 @@
-<<<<<<< HEAD
-apps/RegistroReceta/__pycache__/
-veganfood/__pycache__/
-apps/RegistroReceta/migrations/__pycache__/
-db.sqlite3
-=======
 *.sqlite3
 apps/RegistroReceta/__pycache__/*
 apps/RegistroUsuario/__pycache__/*
->>>>>>> nico
+veganfood/__pycache__/*
