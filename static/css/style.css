@@ -9,6 +9,15 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+.enlace-simple a,
+.enlace-simple a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+.enlace-simple a:hover {
+    color: #13a2b7;
+}
 
 /* login */
 
@@ -1186,6 +1195,22 @@ span {
 }
 
 .negacion {
+    background: #ffcccc;
+    border: 1px solid red
+}
+
+#IdFormLogin .bg-danger,
+#idFormRegistro .bg-danger {
+    background-color: transparent !important;
+}
+
+.errorlist li {
+    display: block;
+    font-size: .8em;
+    margin: 0px 0 10px;
+    padding: 5px 0 5px 11px;
+    width: 400px;
+    
     background: #ffcccc;
     border: 1px solid red
 }

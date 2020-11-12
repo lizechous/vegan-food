@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 
 from django.contrib.auth.models import User
-from .forms import UsuarioForm
+from .forms import RegistroForm, CuentaForm
 from django.views.generic import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 
@@ -20,19 +20,15 @@ from django.utils.encoding import force_bytes
 class RegistroUsuario(CreateView):
     model = User
     template_name = "RegistroUsuario/formulario.html"
-    form_class = UsuarioForm
-    # TODO: redirigir a `home` cuando se configure
-    success_url = reverse_lazy('registro')
+    form_class = RegistroForm
+    success_url = reverse_lazy('login')
 
 class CuentaUsuario(UpdateView):
     model = User
-    form_class = UsuarioForm
+    form_class = CuentaForm
     template_name = "RegistroUsuario/formulario.html"
     # TODO: este redirect no sirve (al menos no así pelao)
     success_url = reverse_lazy('cuenta')
-
-class EliminarUsuario(DeleteView):
-    pass
 
 
 # Metodos personalizados
