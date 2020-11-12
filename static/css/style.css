@@ -51,14 +51,23 @@ body {
     margin-bottom: 10px;
 }
 
+#id_username,
+#id_password {
+    width: 100%;
+}
+
 @media(max-width:768px) {
     #login-dp {
         background-color: inherit;
-        color: #fff;
+        /* color: #fff; */
     }
     #login-dp .bottom {
         background-color: inherit;
         border-top: 0 none;
+    }
+
+    #menu-usuario-responsivo li {
+        display: inline-block;
     }
 }
 
