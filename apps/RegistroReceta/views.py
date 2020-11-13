@@ -42,8 +42,11 @@ def ingresar(request):
 def crear_receta(request):
     if request.method == "POST":
         form = RecetaForm(request.POST, request.FILES)
+        
         if form.is_valid():
+            form.instance.autor_id = request.user.id
             form.save()
+
             # model_instance.save()
             return redirect("/crearReceta")
     else:
@@ -54,10 +57,10 @@ def crear_receta(request):
 
 # LISTAR RECETAS
 def listar_recetas(request):
-    recetas = Receta.objects.all()
+    id_autor= request.user.id
+    recetas = Receta.objects.filter(autor_id = id_autor)
     # return render(request, "RegistroReceta/listar_recetas.html", {'recetas': recetas})
 # -----------------------------
-
     nombre_receta= request.GET.get('nombre-receta')
     tipo_receta= request.GET.get('tipo-receta')
 
