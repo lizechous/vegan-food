@@ -6,9 +6,9 @@
 {% block content %}
 <div class="container">
     <h3>Recetas</h3>
-    <hr>
-    <a class="btn" role="button" href="{% url 'crear_receta' %}">Agregar receta</a>
-    <hr>
+
+    <br />
+    <br />
     <!-- ----------------------------- -->
 
     <form class="form-inline mb-5" method="GET">
@@ -63,23 +63,22 @@
 
 
 
-<!-- ---------------------------------------------- -->
     {% if not recetas %}
         <h4>No hay registro de recetas</h4>
         <br><br><br><br><br><br><br><br>
     {% else %}
-        <table class="table table-bordered">
-            <thead>
+        <table class="table table-striped">
+            <thead class="thead-dark">
                 <tr>
-                    <td>Imagen</td>
-                    <td>Nombre</td>
-                    <td>Porciones</td>
-                    <td>Tipo</td>
-                    <td>Fecha de creación</td>
-                    <td>Autor</td>
+                    <th>Imagen</th>
+                    <th>Nombre</th>
+                    <th>Porciones</th>
+                    <th>Tipo</th>
+                    <th>Fecha de creación</th>
+                    <th>Autor</th>
                 </tr>
             </thead>
-            <!--  -------------->
+     
             <tbody>
                 {% for r in recetas %}
                     <tr>
