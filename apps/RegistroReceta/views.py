@@ -58,7 +58,9 @@ def crear_receta(request):
 # LISTAR RECETAS
 def listar_recetas(request):
     id_autor= request.user.id
-    recetas = Receta.objects.filter(autor_id = id_autor)
+    recetas = Receta.objects.all()
+    if request.user.is_superuser == False:
+        recetas = recetas.filter(autor_id = id_autor)
     # return render(request, "RegistroReceta/listar_recetas.html", {'recetas': recetas})
 # -----------------------------
     nombre_receta= request.GET.get('nombre-receta')
@@ -66,9 +68,9 @@ def listar_recetas(request):
 
     if 'btn-buscarReceta' in request.GET:
         if nombre_receta != '':
-            recetas = Receta.objects.filter(nombre_receta__icontains=nombre_receta)
+            recetas = recetas.filter(nombre_receta__icontains=nombre_receta)
         if tipo_receta != 'Todos':
-            recetas = Receta.objects.filter(tipo_receta__icontains= tipo_receta)
+            recetas = recetas.filter(tipo_receta__icontains= tipo_receta)
 
     return render(request, "RegistroReceta/listar_recetas.html", {'recetas': recetas, 'nombreReceta': nombre_receta, 'tipoReceta': tipo_receta})
 
