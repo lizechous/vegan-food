@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} editando receta {% endblock title %}
+
+{% block content %}
+    <div class="row d-flex justify-content-center">
+                <div class="col-lg-8">
+                    <div class="blog__details__comment">
+                        <h3>Edita tu receta</h3>
+                        <form enctype="multipart/form-data" id="id-formulario-receta" method="POST">
+                            {% csrf_token %}
+
+                            {{form.as_p}}
+                            <button type="submit" id="botonReceta" class="site-btn">Guardar cambios</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <br><br><br><br>
+{% endblock %}
+

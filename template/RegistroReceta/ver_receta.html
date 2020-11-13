@@ -1,0 +1,31 @@
+{% load static %}
+<!-- Modal -->
+
+<div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title"></h4>
+        </div>
+        <div class="modal-body">
+            <h3></h3>
+            <h3>{{ recetita.nombre_receta}}</h3>
+            <br>
+            <img src=../static/images/{{recetita.imagen}} style="width: 700px;" />
+            <br><br><br>
+            <h5>INGREDIENTES:</h5>
+            <br>
+            {{ recetita.ingredientes|linebreaksbr }}
+            <br><br>
+            <h5>INSTRUCCIONES:</h5>
+            <br>
+            {{ recetita.instrucciones|linebreaksbr }}
+            <!-- line braks para conservar saltos de linea -->
+
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        </div>
+    </div>
+</div>
+</div>

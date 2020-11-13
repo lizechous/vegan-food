@@ -1,0 +1,4 @@
+*.sqlite3
+apps/RegistroReceta/__pycache__/*
+apps/RegistroUsuario/__pycache__/*
+veganfood/__pycache__/*

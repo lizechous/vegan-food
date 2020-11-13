@@ -1,0 +1,33 @@
+
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block title %} crear receta {% endblock title %}
+
+{% block content %}
+    <!-- seccion formulario -->
+    <section class="blog-details spad">
+        <div class="container">
+            <div class="blog__details__hero set-bg" data-setbg="{% static 'images/crear-receta-fondo.jpg' %}">
+            </div>
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-8">
+                    <div class="blog__details__comment">
+                        <h3>Colabora con tu receta</h3>
+
+                        {% comment %} FORMULARIO RECETA {% endcomment %}
+
+                        <form enctype="multipart/form-data" id="id-formulario-receta" method="POST">
+                            {% csrf_token %}
+
+                            {{form.as_p}}
+                            <button type="submit" id="botonReceta" class="site-btn">Subir receta</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %} 
+
+
