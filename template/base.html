@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>{% block title %}{% endblock title %}</title>
+    <title>Recetario Vegano | {% block title %}{% endblock title %}</title>
     
     {% block css %} 
         <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
@@ -62,41 +62,62 @@
                             <nav class="header__menu">
                                 <ul>
                                     <li><a href="{% url 'index' %}">Inicio</a></li>
+                                    
+                                    {% if user.is_authenticated %}
                                     <li><a href="{% url 'crear_receta' %}">Crear receta</a></li>
+                                    {% endif %}
+                                    
                                     <li><a href="{% url 'listar_recetas' %}">Listar recetas</a></li>
+                                    
+                                    {% if not user.is_authenticated %}
                                     <li><a href="{% url 'registro' %}">Registro</a></li>
+                                    {% endif %}
+                                    
                                     <li><a href="{% url 'contacto' %}">Contacto</a></li>
+
                                     <li class="dropdown">
-                                        <a class="dropdown-toggle" data-toggle="dropdown"><b>Ingresar</b></a>
+                                        <a class="dropdown-toggle" data-toggle="dropdown">
+                                        
+                                        {% if user.is_authenticated %}
+                                        <b>{{ user.first_name }}</b>
+                                        {% else %}
+                                        <b>Ingresar</b>
+                                        {% endif %}
+                                        
+                                        </a>
                                         <ul id="login-dp" class="dropdown-menu">
                                             <li>
                                                 <div class="row">
                                                     <div class="col-md-12">
-                                                        <form class="form" role="form" method="post" action="login"
+
+                                                        {% if user.is_authenticated %}
+                                                        
+                                                        <ul>
+                                                            <li class="enlace-simple"><a href="{% url 'cuenta' user.id %}">Modificar cuenta</a></li>
+                                                            <li class="enlace-simple"><a href="{% url 'logout' %}">Cerrar sesión</a></li>
+                                                            <li></li>
+                                                        </ul>
+
+                                                        {% else %}
+
+                                                        <form class="form" role="form" method="post" action="{% url 'login' %}"
                                                             accept-charset="UTF-8" id="login-nav">
-                                                            <div class="form-group">
-                                                                <!-- <label class="sr-only" for="exampleInputEmail2">Ingresa tu email</label> -->
-                                                                <input type="email" class="form-control"
-                                                                    id="exampleInputEmail2" placeholder="Email" required>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <!-- <label class="sr-only" for="exampleInputPassword2">Ingresa tu contraseña</label> -->
-                                                                <input type="password" class="form-control"
-                                                                    id="exampleInputPassword2" placeholder="Contraseña"
-                                                                    required>
-                                                                <div class="help-block text-right"><a href="">Olvidaste tu
-                                                                        contraseña ?</a></div>
-                                                            </div>
+        
+                                                            {% csrf_token %}
+
+                                                            {{ login_navbar_form }}
+
+                                                            <span class="enlace-simple"><a href="{% url 'password_reset' %}">¿Olvidó su contraseña?</a></span>
+
                                                             <div class="form-group">
                                                                 <button type="submit"
                                                                     class="btn btn-primary btn-block">Entrar</button>
                                                             </div>
-                                                            <div class="checkbox">
-                                                                <label>
-                                                                    <input type="checkbox"> Mantener sesión iniciada
-                                                                </label>
-                                                            </div>
+
                                                         </form>
+
+                                                        {% endif %}
+
                                                     </div>
                                                 </div>
                                             </li>
@@ -114,16 +135,60 @@
                         <i class="fa fa-bars"></i>
                     </button>
                     <div class="dropdown-menu">
+
+                        {% if user.is_authenticated %}
                         <a class="dropdown-item" href="{% url 'crear_receta' %}">Crear receta</a>
+                        {% endif %}
+
                         <a class="dropdown-item" href="{% url 'listar_recetas' %}">Listar recetas</a>
+                        
+                        {% if not user.is_authenticated %}
                         <a class="dropdown-item" href="{% url 'registro' %}">Registro</a>
+                        {% endif %}
+
                         <a class="dropdown-item" href="{% url 'contacto' %}">Contacto</a>
-                        <a class="dropdown-item" data-toggle="dropdown"><b>Ingresar</b></a>
+
+                        <a class="dropdown-item" data-toggle="dropdown">
+                            {% if user.is_authenticated %}
+                            <b>{{ user.first_name }}</b>
+                            {% else %}
+                            <b>Ingresar</b>
+                            {% endif %}
+                        </a>
+                        
                         <ul id="login-dp" class="dropdown-menu">
                             <li>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <form class="form" role="form" method="post" action="login" accept-charset="UTF-8"
+
+                                        {% if user.is_authenticated %}
+                                                        
+                                        <ul id="menu-usuario-responsivo">
+                                            <li class="enlace-simple"><a href="{% url 'cuenta' user.id %}">Modificar cuenta</a></li>
+                                            <li class="enlace-simple"><a href="{% url 'logout' %}">Cerrar sesión</a></li>
+                                        </ul>
+
+                                        {% else %}
+
+                                        <form class="form" role="form" method="post" action="{% url 'login' %}"
+                                            accept-charset="UTF-8" id="login-nav">
+
+                                            {% csrf_token %}
+
+                                            {{ login_navbar_form }}
+
+                                            <span class="enlace-simple"><a href="{% url 'password_reset' %}">¿Olvidó su contraseña?</a></span>
+
+                                            <div class="form-group">
+                                                <button type="submit"
+                                                    class="btn btn-primary btn-block">Entrar</button>
+                                            </div>
+
+                                        </form>
+
+                                        {% endif %}
+
+                                        {% comment %} <form class="form" role="form" method="post" action="login" accept-charset="UTF-8"
                                             id="login-nav">
                                             <div class="form-group">
                                                 <!-- <label class="sr-only" for="exampleInputEmail2">Ingresa tu email</label> -->
@@ -145,7 +210,7 @@
                                                     <input type="checkbox"> Mantener sesión iniciada
                                                 </label>
                                             </div>
-                                        </form>
+                                        </form> {% endcomment %}
                                     </div>
                                 </div>
                             </li>
