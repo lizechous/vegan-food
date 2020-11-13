@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} registro {% endblock title %}
+
+{% block content %}
+    <!-- SECCIÓN REGISTRO -->
+    <section class="blog-details spad">
+        <div class="container">
+            <div class="blog__details__hero set-bg" data-setbg="{% static 'images/portada.jpg' %}">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-lg-7 text-center">
+                        <div class="blog__hero__text">
+                            <h2>Registrate y colabora con tus recetas</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-8">
+                    <div class="blog__details__comment">
+                        <h3>Registrate en Nuestro Sitio</h3>
+
+                        <form id="idFormRegistro" method="POST" enctype= "multipart/form-data" >
+                            {% csrf_token %}
+                    
+                            {% for field in form %}
+                            <div class="form-group">
+                                <label for="{{ field.name}}">{{ field.label_tag }}</label><br>            
+                                {{ field }}
+                                <div class="bg-danger mt-1">{{ field.errors }}</div>
+                            </div>
+                            {% endfor %}
+                            
+                            <div class="item-formulario">
+                                <label for="btnRegistro">
+                                    <button type="submit" id="btnRegistro" name="btnRegistro"
+                                                onclick="return validarPasswords()" class="site-btn">Registrarse</button>
+                                </label>
+                            </div>
+                        
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- FIN SECCIÓN -->
+
+{% endblock %}

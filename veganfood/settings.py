@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps.RegistroReceta',
+    'apps.RegistroUsuario',
 ]
 
 MIDDLEWARE = [
@@ -64,6 +65,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'apps.RegistroUsuario.context_processors.login_navbar',
             ],
         },
     },
@@ -124,3 +126,14 @@ MEDIA_URL = '/images/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 MEDIA_ROOT = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'static', 'images')
 STATIC_ROOT = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'static', 'static-only')
+
+
+# Redirecciones
+
+LOGIN_REDIRECT_URL = 'index'
+LOGOUT_REDIRECT_URL = 'index'
+
+
+# Backend para simular el envío de correos
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
