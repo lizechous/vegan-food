@@ -4,10 +4,26 @@ from .forms import RecetaForm
 from django.urls import reverse_lazy
 
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from django.db.models import Q
 
 # -------------------------------------
 def index(request):
-    return render(request, 'index.html')
+    recetas = Receta.objects.all()
+    # return render(request, "RegistroReceta/listar_recetas.html", {'recetas': recetas})
+# -----------------------------
+
+    nombre_receta= request.GET.get('nombre-receta')
+    tipo_receta= request.GET.get('tipo-receta')
+
+    if 'btn-buscarReceta' in request.GET:
+        if nombre_receta != '':
+            recetas = Receta.objects.filter(nombre_receta__icontains=nombre_receta)
+        if tipo_receta != 'Todos':
+            recetas = Receta.objects.filter(tipo_receta__icontains= tipo_receta)
+            
+    
+
+    return render(request, "index.html", {'recetas': recetas, 'nombreReceta': nombre_receta, 'tipoReceta': tipo_receta})
 
 def registro(request):
     return render(request, 'registro.html')
@@ -39,7 +55,28 @@ def crear_receta(request):
 # LISTAR RECETAS
 def listar_recetas(request):
     recetas = Receta.objects.all()
-    return render(request, "RegistroReceta/listar_recetas.html", {'recetas': recetas})
+    # return render(request, "RegistroReceta/listar_recetas.html", {'recetas': recetas})
+# -----------------------------
+
+    nombre_receta= request.GET.get('nombre-receta')
+    tipo_receta= request.GET.get('tipo-receta')
+
+    if 'btn-buscarReceta' in request.GET:
+        if nombre_receta != '':
+            recetas = Receta.objects.filter(nombre_receta__icontains=nombre_receta)
+        if tipo_receta != 'Todos':
+            recetas = Receta.objects.filter(tipo_receta__icontains= tipo_receta)
+
+    return render(request, "RegistroReceta/listar_recetas.html", {'recetas': recetas, 'nombreReceta': nombre_receta, 'tipoReceta': tipo_receta})
+
+
+# --------------------------------
+# VER RECETA
+def ver_receta(request, receta_id):
+    recetita = Receta.objects.get(id=receta_id)  
+    return render(request, "RegistroReceta/ver_receta.html", {'recetita': recetita})
+# ------------------------
+
 
 # EDITAR RECETAS
 def editar_receta(request, receta_id):
@@ -60,7 +97,4 @@ def borrar_receta(request, receta_id):
     instancia.delete()
 
     return redirect('listar_recetas')
-
-
-
 
