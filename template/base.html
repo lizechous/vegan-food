@@ -53,7 +53,7 @@
                     <div class="col-lg-2">
                         <!-- LINK PÁGINA INICIO EN LOGO -->
                         <div class="header__logo">
-                            <a href="./index.html"><img src="{% static 'images/logo-vegano.png' %}" alt=""></a>
+                            <a href="index"><img src="{% static 'images/logo-vegano.png' %}" alt=""></a>
                         </div>
                     </div>
                     <div class="col-lg-10">
@@ -67,8 +67,10 @@
                                     <li><a href="{% url 'crear_receta' %}">Crear receta</a></li>
                                     {% endif %}
                                     
+                                    {% if user.is_authenticated %}
                                     <li><a href="{% url 'listar_recetas' %}">Listar recetas</a></li>
-                                    
+                                    {% endif %}
+
                                     {% if not user.is_authenticated %}
                                     <li><a href="{% url 'registro' %}">Registro</a></li>
                                     {% endif %}
@@ -271,6 +273,10 @@
         <script src="{% static 'js/main.js' %}"></script>
         <!-- <script id="dsq-count-scr" src="//recetario-2.disqus.com/count.js" async></script> -->
     {% endblock javascript %}
+    {% block extraalgo %}    {% endblock extraalgo %}
+
+
+
 
 </body>
 
