@@ -35,6 +35,13 @@
                             <input class="site-btn" type="submit" value="Entrar" />
                         </div>
                     </form>
+
+                    <hr>
+
+                    <a href="{% url 'login_social:begin' 'facebook' %}?next={{ request.path }}" class="btn btn-block">
+                        <i class="fa fa-facebook-official"></i>&emsp;Iniciar sesion con Facebook
+                    </a>
+
                 </div>
             </div>
         </div>

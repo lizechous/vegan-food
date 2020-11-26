@@ -32,14 +32,19 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # default
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # propias
     'apps.RegistroReceta',
     'apps.RegistroUsuario',
+    # autenticación por apps de terceros
+    'social_django',
+    'social.apps.django_app.default',
 ]
 
 MIDDLEWARE = [
@@ -50,6 +55,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # autenticación por apps de terceros
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'veganfood.urls'
@@ -65,7 +72,11 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # propias
                 'apps.RegistroUsuario.context_processors.login_navbar',
+                # autenticación por apps de terceros
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -103,6 +114,13 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTHENTICATION_BACKENDS = [
+    'social.backends.facebook.FacebookAppOAuth2',
+    'social.backends.facebook.FacebookOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+    'social_core.backends.facebook.FacebookOAuth2',
+]
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
@@ -132,8 +150,14 @@ STATIC_ROOT = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'static',
 
 LOGIN_REDIRECT_URL = 'index'
 LOGOUT_REDIRECT_URL = 'index'
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/'
 
 
 # Backend para simular el envío de correos
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# claves para autenticación por apps de terceros
+
+SOCIAL_AUTH_FACEBOOK_KEY = '197515245206754'
+SOCIAL_AUTH_FACEBOOK_SECRET = '218667b8c4eb932666368782fbde4c12'

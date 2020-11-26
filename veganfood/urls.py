@@ -18,19 +18,23 @@ from django.urls import path, include
 from django.contrib.auth.views import LoginView, LogoutView, PasswordResetDoneView, PasswordResetConfirmView, PasswordResetCompleteView
 
 urlpatterns = [
+    # propias
     path('', include('apps.RegistroReceta.urls')),
     path('usuario/', include('apps.RegistroUsuario.urls')),
 
+    # autenticación
     path('accounts/login/', LoginView.as_view(redirect_authenticated_user=True,
                                               template_name='RegistroUsuario/login.html'), name='login'),
     path('logout/', LogoutView.as_view(template_name='RegistroUsuario/logout.html'), name='logout'),
-
     path('password_reset/done/', PasswordResetDoneView.as_view(
         template_name='RegistroUsuario/password_reset_done.html'), name='password_reset_done'),
     path('reset/<uidb64>/<token>/', PasswordResetConfirmView.as_view(
         template_name="RegistroUsuario/password_reset_confirm.html"), name='password_reset_confirm'),
     path('reset/done/', PasswordResetCompleteView.as_view(
         template_name='RegistroUsuario/password_reset_complete.html'), name='password_reset_complete'),
+    # autenticación por terceros
+    path('', include('social_django.urls', namespace='login_social')),
 
+    # administración
     path('admin/', admin.site.urls),
 ]
