@@ -18,5 +18,10 @@ urlpatterns = [
     path('registro', views.registro, name="registro"),
     path('contacto', views.contacto, name="contacto"),
     path('ingresar', views.ingresar, name="ingresar"),
+    
+    # api
+    path('recetas/',  views.receta_collection , name='receta_collection'),
+    path('recetas/<int:pk>/', views.receta_element ,name='receta_element')
+
 ]
 
