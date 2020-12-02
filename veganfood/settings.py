@@ -40,6 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'apps.RegistroReceta',
     'apps.RegistroUsuario',
+    'rest_framework',
+    'social_django', 
+    'social.apps.django_app.default',
+
 ]
 
 MIDDLEWARE = [
@@ -50,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'veganfood.urls'
@@ -66,10 +71,25 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'apps.RegistroUsuario.context_processors.login_navbar',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
 ]
+
+AUTHENTICATION_BACKENDS = [
+                'social.backends.facebook.FacebookAppOAuth2',
+                'social.backends.facebook.FacebookOAuth2',
+                'django.contrib.auth.backends.ModelBackend',
+                'social_core.backends.facebook.FacebookOAuth2',
+]
+
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/'
+
+SOCIAL_AUTH_FACEBOOK_KEY = '1193581774368837'
+SOCIAL_AUTH_FACEBOOK_SECRET = '47e42bd4d985e461021dfbb04c3a5881'
+
 
 WSGI_APPLICATION = 'veganfood.wsgi.application'
 

@@ -47,13 +47,14 @@
     {% endblock %}
 
     {% block header %}
+
         <header class="header">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-2">
                         <!-- LINK PÁGINA INICIO EN LOGO -->
                         <div class="header__logo">
-                            <a href="./index.html"><img src="{% static 'images/logo-vegano.png' %}" alt=""></a>
+                            <a href="./index"><img src="{% static 'images/logo-vegano.png' %}" alt=""></a>
                         </div>
                     </div>
                     <div class="col-lg-10">
@@ -110,7 +111,9 @@
                                                             {{ login_navbar_form }}
 
                                                             <span class="enlace-simple"><a href="{% url 'password_reset' %}">¿Olvidó su contraseña?</a></span>
-
+                                                            <a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}">Entrar con Facebook</a>
+                                                            <br>
+                                                            {% comment %} <a href="{% url 'social:begin' 'google-oauth2' %}?next={{ request.path }}">Login with Google</a> {% endcomment %}
                                                             <div class="form-group">
                                                                 <button type="submit"
                                                                     class="btn btn-primary btn-block">Entrar</button>
