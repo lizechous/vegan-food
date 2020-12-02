@@ -36,4 +36,7 @@ urlpatterns = [
     
     # RUTA PARA SOCIAL
     path('', include('social_django.urls', namespace='social')),
+
+    # PWA
+    path('', include('pwa.urls')),
 ]

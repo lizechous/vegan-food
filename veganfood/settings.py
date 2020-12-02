@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'social_django', 
     'social.apps.django_app.default',
-
+    'pwa',
 ]
 
 MIDDLEWARE = [
@@ -157,3 +157,30 @@ LOGOUT_REDIRECT_URL = 'index'
 # Backend para simular el envío de correos
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# ---------------------- PWA -------------------------
+
+# Ubicación
+
+PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'static/js', 'serviceworker.js')
+
+# Contenido del Manifest.json
+
+PWA_APP_NAME = 'Recetario Vegano'
+PWA_APP_DESCRIPTION = 'Recetario online de comida vegana'
+PWA_APP_THEME_COLOR = '#3faf90'
+PWA_APP_BACKGROUND_COLOR = '#fff'
+PWA_APP_ICONS = [
+    {
+        'src': '/static/images/icons/pwa_icon_128.png',
+        'sizes': '128x128'
+    },
+    {
+        'src': '/static/images/icons/pwa_icon_256.png',
+        'sizes': '256x256'
+    },
+    {
+        'src': '/static/images/icons/pwa_icon_516.png',
+        'sizes': '512x512'
+    }
+]
