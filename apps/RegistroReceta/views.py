@@ -1,10 +1,20 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Receta
 from .forms import RecetaForm
 from django.urls import reverse_lazy
 
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.db.models import Q
+
+#------------- importaciones API ---------------------
+from django.http import HttpResponse
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from .serializers import RecetaSerializer
+from rest_framework import status
+
+from django.http.response import JsonResponse
+from rest_framework.parsers import JSONParser 
 
 # -------------------------------------
 def index(request):
@@ -102,4 +112,39 @@ def borrar_receta(request, receta_id):
     instancia.delete()
 
     return redirect('listar_recetas')
+
+#----------------- API --------------------
+
+@api_view(['GET', 'POST'])
+def receta_collection(request):
+    if request.method == 'GET':
+        recetas = Receta.objects.all()
+        serializer = RecetaSerializer(recetas, many=True)
+        return Response(serializer.data)
+    elif request.method == 'POST':
+        serializer = RecetaSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['GET', 'PUT', 'DELETE'])
+def receta_element(request, pk):
+    receta = get_object_or_404(Receta, id=pk)
+
+    if request.method == 'GET':
+        serializer = RecetaSerializer(receta)
+        return Response(serializer.data)
+    elif request.method == 'DELETE':
+        receta.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+    
+    elif request.method == 'PUT': 
+        receta_new = JSONParser().parse(request) 
+        serializer = RecetaSerializer(receta, data=receta_new) 
+        if serializer.is_valid(): 
+            serializer.save() 
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
