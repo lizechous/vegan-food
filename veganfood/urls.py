@@ -33,4 +33,7 @@ urlpatterns = [
         template_name='RegistroUsuario/password_reset_complete.html'), name='password_reset_complete'),
 
     path('admin/', admin.site.urls),
+    
+    # RUTA PARA SOCIAL
+    path('', include('social_django.urls', namespace='social')),
 ]
