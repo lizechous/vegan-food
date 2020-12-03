@@ -19,7 +19,7 @@ class Receta(models.Model):
     ingredientes = models.TextField()
     instrucciones = models.TextField()
     fecha_creacion =  models.DateTimeField(auto_now_add=True, auto_now=False)
-    imagen = models.ImageField(upload_to='RegistroReceta/img/')
+    imagen = models.ImageField(upload_to='RegistroReceta/img/', blank=True)
 
     def __str__(self):
         return self.nombre_receta
